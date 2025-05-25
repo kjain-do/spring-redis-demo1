@@ -11,6 +11,11 @@ public class RedisController {
     @Autowired
     private StringRedisTemplate redisTemplate;
 
+    @GetMapping()
+    public String hello() {
+        return "Hello from demo 1 Redis Controller!";
+    }
+
     @PostMapping("/set")
     public String set(@RequestParam String key, @RequestParam String value) {
         redisTemplate.opsForValue().set(key, value);
